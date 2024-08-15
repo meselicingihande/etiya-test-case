@@ -17,13 +17,12 @@ class CurrencyRateService
     {
         $rates = [];
 
-        foreach ($this->providers as $providerClass) {
-            $providerInstance = app($providerClass);
-            if (method_exists($providerInstance, 'fetchRates')) {
-                $rates = array_merge($rates, $providerInstance->fetchRates());
-            } else {
-                throw new \Exception("Provider class {$providerClass} does not have a fetchRates method.");
-            }
+        foreach ($this->providers as $providerData) {
+            $providerClass = $providerData['class'];
+            $providerUrl = $providerData['url'];
+
+            $providerInstance = new $providerClass($providerUrl);
+            $rates = array_merge($rates, $providerInstance->fetchRates());
         }
 
         return $rates;
@@ -32,8 +31,11 @@ class CurrencyRateService
     public function getCheapestRates(): array
     {
         $allRates = [];
-        foreach ($this->providers as $providerClass) {
-            $providerInstance = app($providerClass);
+        foreach ($this->providers as $providerData) {
+            $providerClass = $providerData['class'];
+            $providerUrl = $providerData['url'];
+
+            $providerInstance = new $providerClass($providerUrl);
             $allRates[] = $providerInstance->fetchRates();
         }
 

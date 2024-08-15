@@ -9,9 +9,9 @@ class ProviderTwoAdapter implements CurrencyProviderInterface
 {
     protected $url;
 
-    public function __construct()
+    public function __construct(string $url)
     {
-        $this->url = 'https://run.mocky.io/v3/9073c9e5-b8ef-41d9-a6b3-21dc32d28be0';
+        $this->url = $url;
     }
     public function fetchRates(): array
     {

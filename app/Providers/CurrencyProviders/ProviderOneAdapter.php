@@ -9,9 +9,9 @@ class ProviderOneAdapter implements CurrencyProviderInterface
 {
     protected $url;
 
-    public function __construct()
+    public function __construct(string $url)
     {
-        $this->url = 'https://run.mocky.io/v3/cde25982-a259-47d2-90d8-978f1216134c';
+        $this->url = $url;
     }
 
     public function fetchRates(): array

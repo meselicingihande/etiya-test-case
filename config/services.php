@@ -36,9 +36,14 @@ return [
     ],
 
     'exchange_rates' => [
-        App\Providers\CurrencyProviders\ProviderOneAdapter::class,
-        App\Providers\CurrencyProviders\ProviderTwoAdapter::class,
-        // Yeni API'ler buraya eklenebilir
+        'provider1' => [
+            'class' => App\Providers\CurrencyProviders\ProviderOneAdapter::class,
+            'url' => env('PROVIDER1_URL'),
+        ],
+        'provider2' => [
+            'class' => App\Providers\CurrencyProviders\ProviderTwoAdapter::class,
+            'url' => env('PROVIDER2_URL'),
+        ],
     ],
 
 ];
