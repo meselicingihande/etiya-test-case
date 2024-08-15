@@ -35,4 +35,10 @@ return [
         ],
     ],
 
+    'exchange_rates' => [
+        App\Providers\CurrencyProviders\ProviderOneAdapter::class,
+        App\Providers\CurrencyProviders\ProviderTwoAdapter::class,
+        // Yeni API'ler buraya eklenebilir
+    ],
+
 ];
