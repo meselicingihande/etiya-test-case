@@ -73,3 +73,9 @@ Bu uygulama, farklı API'lerden döviz kuru bilgilerini alır, karşılaştırı
     -     PROVIDER1_URL=mock_api1
           PROVIDER2_URL=mock_api2
 
+# Geliştirme Notları
+- Adapter Pattern kullanılarak API servisleri oluşturulmuştur ve proje geliştirmesinde kullanılan teknolojiler asağıdaki gibidir:
+   - Laravel 11.9 framework
+   - PHP 8.3.9 
+   - Local testler Postgresql kullanılarak tamamlanmıştır
+   - Görüntüleme iyileştirmeleri için Bootstrap 4.5.2 
